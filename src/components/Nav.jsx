@@ -59,11 +59,11 @@ export default function Nav() {
         style={{ height: scrolled ? 'var(--nav-height-scrolled)' : 'var(--nav-height)' }}
       >
         <div className="flex justify-between items-center max-w-container-max mx-auto px-5 md:px-20 h-full gap-4">
-          <Link to="/" className="flex items-center gap-2.5 group min-w-0 shrink">
-            <span className="material-symbols-outlined text-primary text-2xl md:text-3xl group-hover:rotate-[360deg] transition-transform duration-700 shrink-0">
+          <Link to="/" className="flex items-center gap-2.5 group min-w-0 shrink logo-3d">
+            <span className="material-symbols-outlined text-primary text-2xl md:text-3xl group-hover:rotate-[360deg] transition-transform duration-700 shrink-0 logo-3d-icon">
               spa
             </span>
-            <span className="font-display-lg text-base sm:text-headline-md italic text-primary truncate">
+            <span className="font-display-lg text-base sm:text-headline-md italic text-primary truncate logo-3d-text">
               Glow & Grace Studio
             </span>
           </Link>
@@ -77,7 +77,7 @@ export default function Nav() {
           </div>
 
           <div className="hidden lg:block shrink-0">
-            <Link to="/contact" className="btn-primary text-sm px-6 py-3">
+            <Link to="/contact" className="btn-primary-3d text-sm px-6 py-3">
               Book Appointment
             </Link>
           </div>
@@ -132,7 +132,7 @@ export default function Nav() {
           ))}
           <Link
             to="/contact"
-            className="btn-primary w-full mt-4"
+            className="btn-primary-3d w-full mt-4"
             onClick={() => setMenuOpen(false)}
           >
             Book Appointment

@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import useParallax from '../hooks/useParallax'
+import Hero3DObject from '../components/Hero3DObject'
+import SectionDivider3D from '../components/SectionDivider3D'
 
 const HERO_IMAGE =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuC5EIkyKOpxE8ch564GVg6sUumpkT-REx00_CvA3kudOBG1n7zPJqSphU0B8QlI3MYYQ_P5JaYZjdRD7bbp94SAMvpSxm9OL0S4CdBj7n2Xa9zUc0ckZDveQ7MXdNWWwJgMihazfZp1XSE8ZZnDnAzrHYyatuyd7_8pQiJVKUxiuCs68YOmqDn8yRBxqrvRgxqXNz2k3vJvRIcAcwwjiXu7NE6VBJ_q2RLdKkG6XyHGHFBx4UJXg1nFZA'
@@ -10,6 +12,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-[100dvh] hero-gradient overflow-hidden flex items-center pt-[var(--nav-height)]">
+      {/* Background depth layer */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden hero-enter-bg">
         <div
           className="absolute top-1/4 -right-1/4 w-[min(800px,90vw)] h-[min(800px,90vw)] bg-primary-fixed-dim/10 rounded-full blur-[120px] floating-orb"
@@ -24,6 +27,9 @@ export default function Home() {
           style={{ transform: `translateY(${parallaxY * 0.2}px)` }}
         />
       </div>
+
+      {/* 3D Hero Object - Middle depth layer */}
+      <Hero3DObject />
 
       <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-gutter relative z-10 pb-12 lg:pb-0">
         <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[480px] lg:min-h-[720px] flex items-end lg:items-center justify-center lg:justify-start overflow-hidden">
@@ -52,7 +58,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => navigate('/contact')}
-              className="btn-primary group"
+              className="btn-primary-3d group"
             >
               Book online
               <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300">
@@ -70,6 +76,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <SectionDivider3D variant="ring" />
     </main>
   )
 }

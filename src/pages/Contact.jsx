@@ -72,7 +72,7 @@ export default function Contact() {
                     <option>Bridal Consultation</option>
                   </select>
                 </div>
-                <button type="submit" className="btn-primary w-full mt-4">
+                <button type="submit" className="btn-primary-3d w-full mt-4">
                   Submit Request
                 </button>
               </form>

@@ -1,4 +1,5 @@
 import ScrollReveal from '../components/ScrollReveal'
+import TiltCard from '../components/TiltCard'
 
 const galleryItems = [
   {
@@ -41,15 +42,17 @@ export default function Gallery() {
       <div className="masonry-grid">
         {galleryItems.map((item, index) => (
           <ScrollReveal key={item.title} delay={index * 90} className="masonry-item" direction="scale">
-            <div className="gallery-item group">
-              <img className="w-full h-auto object-cover" src={item.img} alt={item.title} loading="lazy" />
-              <div className="absolute inset-0 glass-overlay-reveal flex flex-col justify-end p-5 sm:p-6">
-                <span className="font-body-md text-label-sm tracking-widest uppercase text-primary-fixed-dim mb-2">
-                  {item.cat}
-                </span>
-                <h3 className="font-display-lg heading-md text-white">{item.title}</h3>
+            <TiltCard className="gallery-3d-item" disabled={false}>
+              <div className="gallery-item group relative">
+                <img className="w-full h-auto object-cover gallery-3d-image" src={item.img} alt={item.title} loading="lazy" />
+                <div className="absolute inset-0 glass-overlay-reveal flex flex-col justify-end p-5 sm:p-6">
+                  <span className="font-body-md text-label-sm tracking-widest uppercase text-primary-fixed-dim mb-2">
+                    {item.cat}
+                  </span>
+                  <h3 className="font-display-lg heading-md text-white">{item.title}</h3>
+                </div>
               </div>
-            </div>
+            </TiltCard>
           </ScrollReveal>
         ))}
       </div>

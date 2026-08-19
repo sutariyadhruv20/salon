@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
+import FloatingObjects from './components/FloatingObjects'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import Gallery from './pages/Gallery'
@@ -66,6 +67,7 @@ export default function App() {
     <BrowserRouter>
       <div className="page-shell min-h-[100dvh] flex flex-col">
         <Nav />
+        <FloatingObjects />
         <AnimatedRoutes />
         <Footer />
         <BackToTop />

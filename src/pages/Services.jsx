@@ -1,5 +1,6 @@
 import ScrollReveal from '../components/ScrollReveal'
 import TiltCard from '../components/TiltCard'
+import SectionDivider3D from '../components/SectionDivider3D'
 
 const SKIN_RITUALS_IMAGE =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuD8oyV2qkXFVgCKuz9v4WrUns2zqZDmoGwEMCBNRwP_eySCWrfwDixwRqsAT2FhUbx4uEc4z5y8wHjsa1P-l9FJkWszEWT0UY6mUo05OYE-aGQe8WhK4KIjjDx0Vittje6mSje-Jh0cqyscI-iTlHggfnE9PWg3Xf2GywsL6ky2Ldy5sjZhbQNavVxvZYg1X4t8-5RoDe3-a9X7zrlbuo-q_OkqxIBGeqQ0rV20moDSxAOfvuqkL6Ffeg'
@@ -82,6 +83,8 @@ export default function Services() {
           </TiltCard>
         </div>
       </ScrollReveal>
+
+      <SectionDivider3D variant="dot" />
 
       <ScrollReveal as="section" delay={120}>
         <div className="flex items-center gap-4 md:gap-6 mb-10 md:mb-12">

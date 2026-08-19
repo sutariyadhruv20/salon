@@ -606,6 +606,20 @@
   .floating-orb-alt {
     animation: none !important;
   }
+
+  .hero-3d-object,
+  .hero-perfume,
+  .logo-3d,
+  .logo-3d-icon,
+  .logo-3d-text,
+  .btn-primary-3d,
+  .gallery-3d-item,
+  .gallery-3d-image,
+  .section-divider-3d,
+  .floating-3d-object {
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 /* ─── Print ─── */
@@ -615,5 +629,204 @@
   .mobile-menu-panel,
   .mobile-menu-backdrop {
     display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   3D PREMIUM ELEMENTS
+   ═══════════════════════════════════════════════════ */
+
+/* ─── 3D Hero Object Animations ─── */
+@keyframes floatRing {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(10deg); }
+}
+
+@keyframes floatDot {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-5px) scale(1.2); opacity: 1; }
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero-perfume {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+/* ─── Floating Decorative Objects ─── */
+@keyframes floatDecor {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(3deg); }
+  66% { transform: translateY(5px) rotate(-2deg); }
+}
+
+/* ─── 3D Button (Booking CTA) ─── */
+.btn-primary-3d {
+  @apply btn-premium bg-primary-container text-white;
+  box-shadow: 0 4px 16px rgba(212, 160, 23, 0.2), 0 1px 3px rgba(212, 160, 23, 0.1);
+  transform: perspective(800px) translateZ(0);
+  transition:
+    transform 0.4s var(--ease-premium),
+    box-shadow 0.4s var(--ease-premium),
+    filter 0.4s var(--ease-premium),
+    border-color 0.4s var(--ease-premium);
+}
+
+.btn-primary-3d:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 12px 40px rgba(212, 160, 23, 0.35), 0 4px 12px rgba(212, 160, 23, 0.15);
+  transform: perspective(800px) translateY(-3px) translateZ(10px);
+}
+
+.btn-primary-3d:active {
+  box-shadow: 0 2px 8px rgba(212, 160, 23, 0.15);
+  transform: perspective(800px) translateY(0) translateZ(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* ─── 3D Logo Treatment ─── */
+.logo-3d {
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+
+.logo-3d-icon {
+  transition: transform 0.7s var(--ease-premium), filter 0.4s var(--ease-premium);
+  filter: drop-shadow(0 1px 2px rgba(121, 89, 0, 0.15));
+}
+
+.logo-3d:hover .logo-3d-icon {
+  filter: drop-shadow(0 2px 6px rgba(212, 160, 23, 0.3));
+}
+
+.logo-3d-text {
+  text-shadow: 0 1px 2px rgba(121, 89, 0, 0.08);
+  transition: text-shadow 0.4s var(--ease-premium);
+}
+
+.logo-3d:hover .logo-3d-text {
+  text-shadow: 0 2px 8px rgba(212, 160, 23, 0.15);
+}
+
+/* ─── Gallery 3D Depth ─── */
+.gallery-3d-item {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium);
+}
+
+.gallery-3d-item:hover {
+  transform: translateZ(12px);
+  box-shadow:
+    0 20px 50px rgba(28, 27, 27, 0.1),
+    0 8px 20px rgba(28, 27, 27, 0.05);
+}
+
+.gallery-3d-image {
+  transition: transform 0.7s var(--ease-premium);
+  will-change: transform;
+}
+
+.gallery-3d-item:hover .gallery-3d-image {
+  transform: scale(1.04) translateZ(8px);
+}
+
+/* ─── 3D Section Divider ─── */
+.section-divider-3d {
+  animation: dividerPulse 4s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* ─── Service Card 3D Enhancement ─── */
+.service-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.service-card .service-card-image {
+  transition: transform 0.7s var(--ease-premium), filter 0.5s var(--ease-premium);
+}
+
+.service-card:hover .service-card-image {
+  transform: scale(1.08) translateZ(6px);
+  filter: brightness(1.04);
+}
+
+/* ─── Glass 3D Effect Enhancement ─── */
+.glass-panel-3d {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 8px 32px rgba(28, 27, 27, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+}
+
+/* ─── Ambient Light Effects ─── */
+.hero-ambient-light {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 190, 57, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ─── Mobile 3D Optimizations ─── */
+@media (max-width: 1023px) {
+  .hero-3d-object {
+    display: none !important;
+  }
+
+  .btn-primary-3d {
+    transform: none;
+  }
+
+  .btn-primary-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212, 160, 23, 0.3);
+  }
+
+  .gallery-3d-item:hover {
+    transform: none;
+    box-shadow: 0 12px 32px rgba(28, 27, 27, 0.08);
+  }
+
+  .gallery-3d-item:hover .gallery-3d-image {
+    transform: scale(1.03);
+  }
+
+  .floating-3d-object {
+    display: none !important;
+  }
+}
+
+/* ─── Touch Device Optimizations ─── */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary-3d {
+    transform: none;
+  }
+
+  .btn-primary-3d:hover {
+    transform: none;
+    box-shadow: 0 4px 16px rgba(212, 160, 23, 0.2);
+  }
+
+  .gallery-3d-item:hover {
+    transform: none;
+  }
+
+  .gallery-3d-item:hover .gallery-3d-image {
+    transform: scale(1.03);
   }
 }
