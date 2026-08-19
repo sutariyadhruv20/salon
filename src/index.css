@@ -61,20 +61,20 @@
   }
 
   .heading-display {
-    font-size: clamp(2rem, 5vw + 0.25rem, 4.5rem);
+    font-size: clamp(1.75rem, 5vw + 0.25rem, 4.5rem);
     line-height: 1.08;
     letter-spacing: -0.025em;
     font-weight: 600;
   }
 
   .heading-xl {
-    font-size: clamp(1.5rem, 3vw + 0.25rem, 3rem);
+    font-size: clamp(1.375rem, 3vw + 0.25rem, 3rem);
     line-height: 1.12;
     letter-spacing: -0.015em;
   }
 
   .heading-md {
-    font-size: clamp(1.25rem, 2vw + 0.25rem, 2rem);
+    font-size: clamp(1.125rem, 2vw + 0.25rem, 2rem);
     line-height: 1.2;
   }
 
@@ -142,6 +142,16 @@
     @apply bg-surface-variant;
     box-shadow: 0 8px 24px rgba(28, 27, 27, 0.08);
     border-color: var(--color-primary);
+  }
+
+  .btn-mobile {
+    @apply px-6 py-3 text-sm;
+  }
+
+  @media (min-width: 640px) {
+    .btn-mobile {
+      @apply px-8 py-4 text-base;
+    }
   }
 
   .nav-link {
@@ -808,6 +818,22 @@
 
   .floating-3d-object {
     display: none !important;
+  }
+}
+
+/* ─── Small Screen Comfort ─── */
+@media (max-width: 480px) {
+  .heading-display {
+    font-size: clamp(1.625rem, 7vw, 2rem);
+    line-height: 1.1;
+  }
+
+  .heading-xl {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .heading-md {
+    font-size: clamp(1.0625rem, 5vw, 1.375rem);
   }
 }
 

@@ -1,11 +1,11 @@
 import useReducedMotion from '../hooks/useReducedMotion'
 
-export default function SectionDivider3D({ variant = 'ring' }) {
+export default function SectionDivider3D({ variant = 'ring', className = '' }) {
   const reduced = useReducedMotion()
 
   if (variant === 'ring') {
     return (
-      <div className="flex items-center justify-center py-12 md:py-16" aria-hidden="true">
+      <div className={`flex items-center justify-center py-12 md:py-16 ${className}`} aria-hidden="true">
         <div
           className="section-divider-3d relative"
           style={{

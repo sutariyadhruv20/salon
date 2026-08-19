@@ -11,7 +11,7 @@ export default function Home() {
   const parallaxY = useParallax(0.06)
 
   return (
-    <main className="relative min-h-[100dvh] hero-gradient overflow-hidden flex items-center pt-[var(--nav-height)]">
+    <main className="relative min-h-[100dvh] hero-gradient overflow-hidden flex items-end sm:items-center pt-[var(--nav-height)]">
       {/* Background depth layer */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden hero-enter-bg">
         <div
@@ -31,10 +31,42 @@ export default function Home() {
       {/* 3D Hero Object - Middle depth layer */}
       <Hero3DObject />
 
-      <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-gutter relative z-10 pb-12 lg:pb-0">
-        <div className="lg:col-span-6 relative min-h-[380px] sm:min-h-[480px] lg:min-h-[720px] flex items-end lg:items-center justify-center lg:justify-start overflow-hidden">
+      <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-gutter relative z-10 pb-8 sm:pb-12 lg:pb-0">
+        {/* Text first on mobile, image first on lg */}
+        <div className="order-2 lg:order-1 lg:col-span-6 flex flex-col justify-end sm:justify-center py-4 sm:py-8 lg:py-0 lg:pl-8 xl:pl-16 z-20">
+          <h1 className="font-display-lg heading-display text-on-surface mb-4 sm:mb-6 lg:mb-8 hero-enter-title text-center lg:text-left">
+            Glow & Grace Studio
+          </h1>
+          <p className="font-body-lg text-on-surface-variant mb-6 sm:mb-8 lg:mb-12 max-w-xl text-center lg:text-left mx-auto lg:mx-0 hero-enter-desc leading-relaxed">
+            Personalised beauty rituals rooted in Indian tradition and modern wellness.
+            Your comfort and privacy are at the heart of everything we do.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center lg:justify-start hero-enter-cta">
+            <button
+              type="button"
+              onClick={() => navigate('/contact')}
+              className="btn-primary-3d btn-mobile group"
+            >
+              Book online
+              <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300">
+                arrow_forward
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/services')}
+              className="btn-outline btn-mobile group"
+            >
+              View Services
+              <span className="material-symbols-outlined text-sm">spa</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Image second on mobile, first on lg */}
+        <div className="order-1 lg:order-2 lg:col-span-6 relative h-[50vh] sm:h-[55vh] lg:h-auto lg:min-h-[720px] flex items-end lg:items-center justify-center lg:justify-start overflow-hidden">
           <img
-            className="hero-enter-image object-cover object-top w-full h-full max-h-[720px] lg:absolute lg:inset-y-0 lg:left-0 lg:w-[115%] lg:max-w-none mix-blend-multiply"
+            className="hero-enter-image object-cover object-top w-full h-full lg:absolute lg:inset-y-0 lg:left-0 lg:w-[115%] lg:max-w-none mix-blend-multiply"
             style={{ transform: `translateY(${parallaxY * 0.2}px)` }}
             src={HERO_IMAGE}
             alt="Glow and Grace Studio Hero"
@@ -45,39 +77,9 @@ export default function Home() {
             <span className="cursor-pointer hover:text-primary transition-colors duration-300">Fb</span>
           </div>
         </div>
-
-        <div className="lg:col-span-6 flex flex-col justify-center py-8 lg:py-0 lg:pl-8 xl:pl-16 z-20">
-          <h1 className="font-display-lg heading-display text-on-surface mb-6 lg:mb-8 hero-enter-title text-center lg:text-left">
-            Glow & Grace Studio
-          </h1>
-          <p className="font-body-lg text-on-surface-variant mb-8 lg:mb-12 max-w-xl text-center lg:text-left mx-auto lg:mx-0 hero-enter-desc leading-relaxed">
-            Personalised beauty rituals rooted in Indian tradition and modern wellness.
-            Your comfort and privacy are at the heart of everything we do.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start hero-enter-cta">
-            <button
-              type="button"
-              onClick={() => navigate('/contact')}
-              className="btn-primary-3d group"
-            >
-              Book online
-              <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300">
-                arrow_forward
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/services')}
-              className="btn-outline group"
-            >
-              View Services
-              <span className="material-symbols-outlined text-sm">spa</span>
-            </button>
-          </div>
-        </div>
       </div>
 
-      <SectionDivider3D variant="ring" />
+      <SectionDivider3D variant="ring" className="hidden sm:flex" />
     </main>
   )
 }
